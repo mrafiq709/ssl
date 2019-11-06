@@ -13,6 +13,23 @@ SSL
 
 **step 6:** ```Go to-> "C:\Windows\System32\drivers\etc\hosts" and add "127.0.0.1 site.test"```
 
+**step 7:** ```Go to-> "C:\xampp\apache\conf\extra\httpd-xampp.conf" and add bellow code```
+```
+## site.test
+ <VirtualHost *:80>
+     DocumentRoot "C:/xampp/htdocs/your_project/public"
+     ServerName site.test
+     ServerAlias *.site.test
+ </VirtualHost>
+ <VirtualHost *:443>
+     DocumentRoot "C:/xampp/htdocs/your_project/public"
+     ServerName site.test
+     ServerAlias *.site.test
+     SSLEngine on
+     SSLCertificateFile "crt/site.test/server.crt"
+     SSLCertificateKeyFile "crt/site.test/server.key"
+ </VirtualHost>
+```
 
 ```
 Note: If does not work, re-install your apache server or xammp.
