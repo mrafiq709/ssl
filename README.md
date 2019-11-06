@@ -2,7 +2,7 @@
 SSL
 ```
 **step 1:** C:\xampp\apache\crt
-**step 2:8* create cert.conf and make-cert.bat file
+**step 2:** create cert.conf and make-cert.bat file
 ```
 ```
 Note: If does not work, re-install your apache server or xammp.
