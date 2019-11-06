@@ -2,7 +2,6 @@
 SSL
 
 **step 1:** ```Go to-> C:\xampp\apache\crt```
-
 **step 2:** ```create cert.conf and make-cert.bat file```
 
 ```
