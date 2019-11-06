@@ -30,7 +30,9 @@ SSL
      SSLCertificateKeyFile "crt/site.test/server.key"
  </VirtualHost>
 ```
-
+```
+Restart apache and browser. Done ! :)
+```
 ```
 Note: If does not work, re-install your apache server or xammp.
 ```
