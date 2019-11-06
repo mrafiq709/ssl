@@ -1,7 +1,7 @@
 # Create-Valid-SSL-in-localhost-for-XAMPP
 SSL
 ```
-Note: If doex not work, re-install your apache server or xammp.
+Note: If does not work, re-install your apache server or xammp.
 ```
 Refernces:
 ----------
