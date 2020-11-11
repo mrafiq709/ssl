@@ -37,7 +37,8 @@ Create a config file for the extensions
   ```
 Create the signed certificate
 ---------------------------------
-    openssl x509 -req -in $NAME.csr -CA myCA.pem -CAkey myCA.key -CAcreateserial \ -out $NAME.crt -days 825 -sha256 -extfile $NAME.ext
+    openssl x509 -req -in $NAME.csr -CA myCA.pem -CAkey myCA.key -CAcreateserial \
+    -out $NAME.crt -days 825 -sha256 -extfile $NAME.ext
     
 At this point we have 7 files
 -------------------------------
@@ -96,3 +97,6 @@ server {
 Now Restart nginx server
 
 <a href="https://i.imgur.com/RC3rSmI.png"><img src="https://i.imgur.com/RC3rSmI.png" title="source: imgur.com" /></a><br/><br/>
+
+##### Reference
+https://stackoverflow.com/questions/7580508/getting-chrome-to-accept-self-signed-localhost-certificate?page=1&tab=votes#tab-top
