@@ -1,24 +1,28 @@
 # ssl-nginx-localhost
 
-# Generate private key
+Generate private key
+--------------------
     openssl genrsa -des3 -out myCA.key 2048
     
-# Generate root certificate
+Generate root certificate
+------------------------------
     openssl req -x509 -new -nodes -key myCA.key -sha256 -days 825 -out myCA.pem
 
-######################
-# Create CA-signed certs
-######################
+Create CA-signed certs
+----------------------
 
     NAME=mydomain.com # Use your own domain name
     
-# Generate a private key
+Generate a private key
+----------------------
     openssl genrsa -out $NAME.key 2048
     
-# Create a certificate-signing request
+Create a certificate-signing request
+------------------------------------------
     openssl req -new -key $NAME.key -out $NAME.csr
     
-# Create a config file for the extensions
+Create a config file for the extensions
+---------------------------------------
   ```
   >$NAME.ext cat <<-EOF
   authorityKeyIdentifier=keyid,issuer
@@ -31,10 +35,12 @@
   IP.1 = 127.0.0.1 # Optionally, add an IP address (if the connection which you have planned requires it)
   EOF
   ```
-# Create the signed certificate
+Create the signed certificate
+---------------------------------
     openssl x509 -req -in $NAME.csr -CA myCA.pem -CAkey myCA.key -CAcreateserial \ -out $NAME.crt -days 825 -sha256 -extfile $NAME.ext
     
-# At this point we have 7 files
+At this point we have 7 files
+-------------------------------
 ```
   - mydomain.com.crt
   - mydomain.com.ext
@@ -46,7 +52,8 @@
   ```
 Copy `mydomain.com.crt` and `mydomain.com.key` to `/etc/ssl/` folder
 
-# Import Certificate Authority to Chrom
+Import Certificate Authority to Chrome
+---------------------------------------
 ```
 chrome
 |__Settings
@@ -58,7 +65,8 @@ chrome
  Select "myCA.pem" and import.
  ```
     
-# Server Config [Nginx]
+Server Config [Nginx]
+---------------------------
 ```
 server {
         listen 443 ssl;
@@ -86,3 +94,5 @@ server {
 }
 ```
 Now Restart nginx server
+
+<a href="https://i.imgur.com/RC3rSmI.png"><img src="https://i.imgur.com/RC3rSmI.png" title="source: imgur.com" /></a><br/><br/>
