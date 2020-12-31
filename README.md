@@ -6,7 +6,7 @@ ssl nginx aws linux ami 2
     sudo certbot [SUBCOMMAND] [options] [-d DOMAIN] [-d DOMAIN]
     sudo certbot --nginx -d example.com
 
-    - > Note: If above step does not work for amazon linux 2 follow bellow step
+   > Note: If above step does not work for amazon linux 2 follow bellow step
     
       > clone git repo: git clone https://github.com/certbot/certbot
       
